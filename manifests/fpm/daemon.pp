@@ -65,7 +65,14 @@ class php::fpm::daemon (
       notify  => Service[$service_name],
     }
 
+    file { $fpm_pool_dir:
+      ensure  => directory,
+      purge   => true,
+      recurse => true,
+      force   => true,
+      require => Package[$package_name],
+      notify  => Service[$service_name],
+    }
   }
 
 }
-
