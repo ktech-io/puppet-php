@@ -32,6 +32,7 @@ define php::module (
   } else {
     package { $package:
       ensure => $ensure,
+      install_options => ['--no-install-recommends']
     }
   }
 
